@@ -1,0 +1,24 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<!-- Внимание! Это только пример. Для того, чтобы он работал,
+обязательно пропишите в нем shopId и scid, который мы присылаем в письме на ваш контактный e-mail. -->
+<form method="POST" action="https://money.yandex.ru/eshop.xml">
+
+<!-- ОБЯЗАТЕЛЬНЫЕ ПОЛЯ -->
+    <span class="mff_head">Оплата занятий</span>
+    <span class="mff_text">Все поля обязательны<br/>для заполнения</span>
+    <input type="hidden" name="shopId" value="77344">
+    <input type="hidden" name="scid" value="72157">
+    <!-- Идентификатор клиента<font color="red">*</font>:<br>
+    <input type=text name="customerNumber" size="64" placeholder="клиент N2 - это пример"><br><br> -->
+    <input name="paymentType" value="" type="hidden"/>
+    <input type=text class="mff_input" name="custName" size="43" placeholder="Ф.И. ученика" required>
+    <input type=text class="mff_input" name="cps_phone" size="43" placeholder="Телефон родителя" required>
+    <input type=text class="mff_input" name="custEmail" size="43" placeholder="E-mail родителя" required>
+    <input type=text class="mff_input" name="custEmail" size="43" placeholder="Назначение платежа" required>
+    <input type=text class="mff_input" name="sum" size="43" placeholder="Сумма (руб.)" required>
+    <!-- Кнопка отправки платежа -->
+    <input type="submit" class="mff_submit btn_or btn_small" value="Оплатить"><br>
+</form>
+
+<!-- Обратите внимание, что в данной форме name="paymentType" value="" (т.е. метод платежа передается без значения). Выбрать способ оплаты (яндекс.кошелек, банковаская карта и т.д.) покупатель сможет после того, как на вашем сайте нажмет кнопку "оплатить" и откроется страница оплаты на сайте https://money.yandex.ru -->

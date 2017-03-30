@@ -1,0 +1,139 @@
+{% extends 'tpl.html' %}
+{% load staticfiles %}
+{% block main %}
+
+    <div id="breadcrumbs">
+        <div class="container">
+            <a href="/">Главная </a>
+            <a href="#!">Стоимость</a>
+        </div>
+    </div>
+
+
+
+    <div id="main_container" class="stoimosti">
+        <div class="container">
+            <div class="main_cont_head">Форматы курсов и стоимость</div>
+            <div class="stoimosti_block">
+                <span class="syspage_block_head st1">Стандартный курс</span>
+                <span class="stoimost_b_txt">Занятия в мини-группах. Группы делятся по уровню знаний ученика: базовые, средние, продвинутые. Для определения уровня ученик пишет Вступительную работу.  Стоимость занятий зависит от количества изучаемых предметов.</span>
+                <div class="kcr_start_time">Длительность курса:<span>16 / 32 недели</span></div>
+                <div class="ppc_item_more">
+                        <a href="https://drive.google.com/uc?export=download&confirm=no_antivirus&id=0B4AY06iwg6lnSFE1ZFZjZ2dCeDQ" class="ppc_item_more_btn">Скачать прайс</a> <span>PDF</span>   <span>1.4 Мбайт</span>
+                    </div>
+            </div>
+            <div class="stoimosti_block">
+                <span class="syspage_block_head st2">Индивидуальный курс</span>
+                <span class="stoimost_b_txt">Вы занимайтесь индивидуально с одним из наших преподавателем по персональной программе, составленной с учетом уровня, целей и способностей ученика. Методист курирует процесс обучения.</span>
+                <div class="kcr_start_time">Длительность курса:<span>от 4 недель</span></div>
+                <div class="ppc_item_more">
+                        <a href="https://drive.google.com/uc?export=download&confirm=no_antivirus&id=0B4AY06iwg6lnSFE1ZFZjZ2dCeDQ" class="ppc_item_more_btn">Скачать прайс</a> <span>PDF</span>   <span>1.4 Мбайт</span>
+                    </div>
+            </div>
+            <div class="stoimosti_block">
+                <span class="syspage_block_head st3">Интенсивный курс</span>
+                <span class="stoimost_b_txt">Когда времени осталось немного — необходимо повысить интенсивность. Занятия проходят в группах до 10 человек, длятся 4.5 ак. часа (180 минут с перерывом). Проработанная и испытанная программа позволяет достичь максимального КПД за минимальное время.</span>
+                <div class="kcr_start_time">Длительность курса:<span>2-6 занятий</span></div>
+                <div class="ppc_item_more">
+                        <a href="https://drive.google.com/uc?export=download&confirm=no_antivirus&id=0B4AY06iwg6lnSFE1ZFZjZ2dCeDQ" class="ppc_item_more_btn">Скачать прайс</a> <span>PDF</span>   <span>1.4 Мбайт</span>
+                    </div>
+            </div>
+            <div class="stoimosti_block">
+                <span class="syspage_block_head st4">Спецкурс</span>
+                <span class="stoimost_b_txt">Есть ряд тем, которые, во-первых, достаточно сложны, во-вторых, требуют дополнительного времени для полноценного объяснения. К примеру, задачи с параметром в ЕГЭ по математике, либо подготовка к итоговому сочинению по литературе.</span>
+                <div class="kcr_start_time">Длительность курса:<span>2-6 занятий</span></div>
+                <div class="ppc_item_more">
+                        <a href="https://drive.google.com/uc?export=download&confirm=no_antivirus&id=0B4AY06iwg6lnSFE1ZFZjZ2dCeDQ" class="ppc_item_more_btn">Скачать прайс</a> <span>PDF</span>   <span>1.4 Мбайт</span>
+                    </div>
+            </div>
+{#            <div class="main_cont_head">Калькулятор стоимости</div>#}
+{#            <div class="stoimosti_calc">#}
+{#                <div class="stoimosti_calc_head">#}
+{#                    <div class="sc_item sc_kurs">#}
+{#                        <span class="sc_item_main">Математика</span>#}
+{#                        <div class="sc_item_dd">#}
+{#                            <span>Математика</span>#}
+{#                            <span>Русский язык</span>#}
+{#                            <span>Обществознание</span>#}
+{#                            <span>Физика</span>#}
+{#                            <span>Химия</span>#}
+{#                            <span>Биология</span>#}
+{#                            <span>История</span>#}
+{#                            <span>Литература</span>#}
+{#                            <span>Информатика</span>#}
+{#                            <span>Английский язык</span>                            #}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="sc_item sc_skurs">#}
+{#                        <span class="sc_item_main">ЕГЭ</span>#}
+{#                        <div class="sc_item_dd">#}
+{#                            <span>ЕГЭ</span>#}
+{#                            <span>ОГЭ</span>#}
+{#                            <span>Олимпиады</span>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="sc_item sc_skurs1">#}
+{#                        <span class="sc_item_main" data-sc="1">Стандартный курс</span>#}
+{#                        <div class="sc_item_dd">#}
+{#                            <span data-sc="1">Стандартный курс</span>#}
+{#                            <span data-sc="2">Интенсивный курс</span>#}
+{#                            <span data-sc="3">Спецкурс</span>#}
+{#                            <span data-sc="3">Индивидуальный курс</span>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="sc_item sc_skurs2">#}
+{#                        <span class="sc_item_main">Помесячно</span>#}
+{#                        <div class="sc_item_dd">#}
+{#                            <span>Помесячно</span>#}
+{#                            <span>Полгода (16 недель)</span>#}
+{#                            <span>Год (32 недели)</span>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="sc_item sc_add">Добавить</div>#}
+{#            </div>#}
+{#            <div class="sc_mid">#}
+{#                <div class="sc_mid_item">#}
+{#                    <div class="scmi_delete"><img src="../static/img/delete.png"></div>#}
+{#                    <span class="scmi_s1">Математика</span>#}
+{#                    <span class="scmi_s2">ЕГЭ</span>#}
+{#                    <span class="scmi_s3">Стандарт. курс</span>#}
+{#                    <span class="scmi_s4">Помесячно</span>#}
+{#                    <span class="scmi_s5">6900 р. / мес.</span>#}
+{#                    <span class="scmi_s6">55 200 р. / 32 нед.</span>#}
+{#                </div>#}
+{#                <div class="sc_mid_item">#}
+{#                    <div class="scmi_delete"><img src="../static/img/delete.png"></div>#}
+{#                    <span class="scmi_s1">Математика</span>#}
+{#                    <span class="scmi_s2">ЕГЭ</span>#}
+{#                    <span class="scmi_s3">Стандарт. курс</span>#}
+{#                    <span class="scmi_s4">Помесячно</span>#}
+{#                    <span class="scmi_s5">6900 р. / мес.</span>#}
+{#                    <span class="scmi_s6">55 200 р. / 32 нед.</span>#}
+{#                </div>#}
+{#                <div class="sc_mid_item">#}
+{#                    <div class="scmi_delete"><img src="../static/img/delete.png"></div>#}
+{#                    <span class="scmi_s1">Математика</span>#}
+{#                    <span class="scmi_s2">ЕГЭ</span>#}
+{#                    <span class="scmi_s3">Стандарт. курс</span>#}
+{#                    <span class="scmi_s4">Помесячно</span>#}
+{#                    <span class="scmi_s5">6900 р. / мес.</span>#}
+{#                    <span class="scmi_s6">55 200 р. / 32 нед.</span>#}
+{#                </div>#}
+{#            </div>#}
+{#            <div class="sc_bot">#}
+{#                <span class="sc_bot_cost">Итоговая стоимость в месяц:</span>#}
+{#                <span class="sc_bot_cost1">16900</span>#}
+{#                <span class="sc_bot_cost2">ф</span>#}
+{#                <span class="sc_bot_txt">* Для некоторых предметов Вы выбрали оплату половину курса или всего курса, указанная стоимость в месяц получена делением общей суммы за учебный год на 8 месяцев</span>#}
+{#            </div>#}
+{#            </div>#}
+        </div>
+    </div>
+    <div id="b10" class="b10_low">
+        <div class="container">
+            <span class="b10_head">Остались вопросы?</span>
+            <span class="b10_text">Заполните форму, наш менеджер свяжется с Вами в ближайшее время</span>
+            <div class="b10_btn"><div class="b10_link">Оставить заЯвку</div></div>
+        </div>
+    </div>
+{% endblock %}

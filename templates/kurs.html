@@ -1,0 +1,209 @@
+{% extends 'tpl.html' %}
+{% load staticfiles %}
+{% load courses_extras %}
+{% block main %}
+<div class="kurs_page_head predmet_head">
+    <div id="breadcrumbs">
+        <div class="container">
+            <a href="/">Главная </a>
+            <a href="/courses/">Учебные курсы</a>
+            <a href="/subject/{{ course.course_type.subject.id }}/">{{ course.course_type.subject }}</a>
+            <a href="#!">{{ course.course_type.name }}</a>
+        </div>
+    </div>
+    <div class="container">
+			<div class="kurs_bh2 bluebg">{{ course.course_type.subject.name }}</div>
+			<h1 class="kursh1">{{ course.course_header }}</h1>
+			<div class="bens">
+				<div class="benblock kurs_start">
+				    <b>Старт:</b><span>{{ course.date_start|default_if_none:"Идет набор" }}</span>
+				</div>
+				<div class="benblock kurs_people">
+				    <b>Осталось в группе:</b><span>{{ course.place_left }} {% if course.place_left == 1 %}место{% elif course.place_left < 5 and course.place_left > 1 %}места{% else %}мест{% endif %}</span>
+				</div>
+			</div>
+			<a class="kurs_head_btn h_call btn_or" href="#!">Записаться на пробное занятие</a>
+	</div>
+</div>
+<div class="kurs_page_info container" id="kurs_page_info">
+	<div class="bh1">{{ course.discription }}</div>
+	<div class="bh2 bluef">Для кого предназначен данный курс</div>
+	<div class="oklines">
+		<ul class="okul">
+			<li>Ученики 11 класса, которые пишут входной тест минимум на 50 баллов и хотят набрать 80+
+			<li>10-классники, с текущих уровнем 40+, кто хочет за этот год серьезно подтянуть свой уровень и в следующем году выйти на финишную прямую
+			<li>Выпускники прошлых лет, которые недовольны своим результатом и хотят пересдать на 80+
+		</ul>
+	</div>
+</div>
+<div class="kurs_page_format" id="kurs_page_format">
+	<div class="container">
+		<div class="bh1 bhw">Формат обучения</div>
+		<div class="row">
+			<div class="format_round">
+				<div class="format_round_b">
+					<div class="format_round_img" id="format1"></div>
+					<b>Длительность</b>
+					<span>{{ course.duration }} недель</span>
+				</div>
+			</div>
+			<div class="format_round">
+				<div class="format_round_b">
+					<div class="format_round_img" id="format2"></div>
+					<b>Количество часов</b>
+					<span>{{ course.frequency }} раз{% if course.frequency < 5 and course.frequency > 1 %}а{% endif %} в неделю<br>по {{ course.class_duration }} мин</span>
+				</div>
+			</div>
+			<div class="format_round">
+				<div class="format_round_b">
+					<div class="format_round_img" id="format3"></div>
+					<b>Время</b>
+					<span>{{ course.weekdays }}<br>{{ course.time_start|time:'H:i' }} - {{ course.time_finish|time:'H:i' }}</span>
+				</div>
+			</div>
+		</div>
+		<div class="bh2 bhw">Расположение</div>
+		<div class="format_map">
+			<b class="orf">м. Сухаревская</b>
+			<span>Большая Сухаревская площадь, 16/18 стр. 1</span>
+		</div>
+	</div>
+</div>
+<div class="kurs_page_prepod container" id="kurs_page_prepod">
+	<div class="row">
+		<div class="prepod_img">
+			<img src="{{ course.tutor.photo.url }}" alt="">
+		</div>
+		<div class="prepod_info">
+			<div class="prep_name">{{ course.tutor.first_name }} {{ course.tutor.last_name }}</div>
+			<div class="prep_who">Преподаватель курса</div>
+			<div class="prep_know">Образование и опыт</div>
+			<ul class="prep_bulitlines">
+				<li><span>{{ course.tutor.education }}</span></li>
+                <li><span>{{ course.tutor.experience }}</span></li>
+				<li><b class="bluef">{{ course.tutor.hobby }}</b>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="kurs_page_program" id="kurs_page_program">
+	<div class="container">
+		<div class="bh1"><span>Программа курса</span>{% if course.program_file %}<a target="_blank" href="{{ course.program_file.url }}" class="btn_or">Скачать программу в PDF</a>{% endif %}</div>
+		<div class="kurs_contain">
+            <div class="kc_text">{{ course.program_description }}</div>
+            {% for program_item in program %}
+                <div class="kc_item">
+                    <div class="kc_num">{{ forloop.counter }}.</div>
+                    <div class="kc_item_txt"><span>{{ program_item.0 }}</span>{{ program_item.1 }}</div>
+                </div>
+            {% endfor %}
+		</div>
+	</div>
+</div>
+<div id="b8">
+    <div class="container">
+        <span class="b6_head">Результаты занятий</span>
+        <span class="b6_text">Ученики решают недоступные ранее задачи. Повышают успеваемость в школе. <br />Легко справляются с экзаменами. Поступают в лучшие вузы</span>
+        <div class="b8_carousel_container">
+            <div id="b8-carousel" class="owl-carousel">
+                {% for comment in comments %}
+                <div class="b8_owl_item">
+                    <div class="b8_owl_img"><img src={{ comment.photo.url }}></div>
+                    <div class="b8_owl_name">{{ comment.client_name }}</div>
+                    <div class="b8_owl_bal">
+                        {% for line in comment.client_achievement.splitlines %}
+                            {{ line }}<br/>
+                        {% endfor %}
+                    </div>
+                    <div class="b8_owl_postupil">
+                        <span>Поступил{% if comment.client_gender == '2' %}а{% endif %}:</span>{{ comment.client_was_enrolled_at }}
+                    </div>
+                    <span class="b8_owl_text"><strong style="font-size: 120%;">{{ comment.name }}</strong><br/>{{ comment.text }}</span>
+                    <span class="b8_owl_vk">{{ comment.client_link }}</span>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="kurs_page_bonus" id="kurs_page_bonus">
+	<div class="container">
+		<div class="bh1">
+			<b class="orf">Бонус!</b>
+			<span class="moneyth">1000</span>
+			<b>0<span class="rub">₽</span></b>
+		</div>
+		<div class="bonus_info">Бесплатная аттестация в по предмету в апреле месяце в формате полноценного ЕГЭ на реальных бланках. Результат проверяется преподавателем и сообщается ученику и родителям в 100-балльной шкале</div>
+	</div>
+</div>
+<div class="kurs_page_prices" id="kurs_page_prices">
+	<div class="container">
+		<div class="bh1">Запишись на курс прямо сейчас</div>
+		{% if course.course_discount.date_finish %}<div class="bh2">и получите скидку {{ course.course_discount.discount|percentage }} до {{ course.course_discount.date_finish }}</div>{% endif %}
+		<div class="row">
+			<div class="price_standard priceblock">
+				<div class="price_h1 bluef">Стандарт</div>
+				<div class="hit">ХИТ</div>
+				<div class="price_cost">
+                    {% get_new_course_price course.id as new_price %}
+                    {% if new_price %}
+					    <div class="oldprice">{{ course.course_price }}</div>
+					    <div class="newprice">{{ new_price }}<span class="price_cost_ruble">₽</span> / месяц</div>
+                    {% else %}
+                        <div class="newprice">{{ course.course_price }}<span class="price_cost_ruble">₽</span> / месяц</div>
+                    {% endif %}
+				</div>
+				<div class="price_info">
+					<div class="line_ok1"><b>До 7 человек в группе</b></div>
+					<ul class="price_bulit">
+						<li>1 бесплатная аттестация
+						<li>Обзвоны родителей по результатам занятий
+						<li>Подбор группы по уровню ученика</li>
+                    </ul>
+				</div>
+				<div class="price_btn">
+					<a href="#" class="h_call btn_or">Выбрать</a>
+				</div>
+			</div>
+			<div class="price_premium priceblock">
+				<div class="price_h1 bhw">Премиум</div>
+				<div class="price_cost">
+					<div class="newprice">14400<span class="price_cost_ruble2">₽</span> / месяц</div>
+				</div>
+				<div class="price_info2">
+					<div class="line_ok2"><b>Индивидуально</b></div>
+					<ul class="price_bulit2">
+						<li>1 бесплатная аттестация
+						<li>Обзвоны родителей по результатам занятий
+						<li>Подбор группы по уровню ученика</li>
+                    </ul>
+				</div>
+				<div class="price_btn">
+					<a href="#" class="h_call btn_or">Выбрать</a>
+				</div>
+			</div>
+		</div>
+		<div class="moneyback">Если Вам не понравится, <b>мы вернем деньги!</b></div>
+	</div>
+</div>
+<div class="question_block" id="question_block">
+	<div class="container">
+		<div class="bh1">Остались вопросы?</div>
+		<div class="bh2">Наш консультант поможет Вам определиться с вариантом обучения</div>
+		<div class="quest_btns">
+			<a href="javascript:jivo_api.open();" class="btn_blue_brd">Написать в чат</a>
+			<a href="#!" class="h_call btn_or">Заказать звонок</a>
+		</div>
+	</div>
+</div>
+
+
+    <script type="text/javascript">
+        var head_img = {1: 'math', 2:'rus', 3:'obsh', 4:'phys', 5:'him', 6:'bio', 7:'his', 8:'lit', 9:'inf', 10:'eng'};
+        var head = $('.predmet_head');
+        head.addClass(head_img[{{ course.course_type.subject.id }}]);
+    </script>
+{% endblock %}
+
+
+

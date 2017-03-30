@@ -1,0 +1,35 @@
+{% extends 'tpl.html' %}
+{% load staticfiles %}
+{% block main %}
+
+<div id="breadcrumbs">
+			<div class="container">
+				<a href="/">Главная </a>
+				<a href="#!">Блог</a>
+			</div>
+		</div>
+    <div id="main_container" class="blog">
+			<div class="container">
+			<div class="bh1">Новости</div>
+			<div class="row">
+                {% for article in articles %}
+				<div class="blog_post">
+					<div class="blog_post_picblock">
+						<div class="blog_post_img">
+							<img src="{{ article.main_image.url }}">
+						</div>
+						<div class="blog_post_date">
+							<b class="d_day">{{ article.publication_date|date:'d' }}</b>
+							<span class="d_month">{{ article.publication_date|date:'M' }}</span>
+							<span class="d_year">{{ article.publication_date|date:'Y' }}</span>
+						</div>
+					</div>
+					<a class="blog_post_head" href="/article/{{ article.id }}/">{{ article.name }}</a>
+					<div class="blog_post_text">{{ article.short_text }}</div>
+					<div class="blog_post_author">Автор: {{ article.author }}</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+{% endblock %}

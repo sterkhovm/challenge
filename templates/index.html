@@ -1,0 +1,394 @@
+{% extends 'tpl.html' %}
+{% load staticfiles %}
+{% block main %}
+    <div id="main_carousel">
+        <div id="carousel-main-page" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+              <!--   <li data-target="#carousel-main-page" data-slide-to="0" class="active"><span>Набор 2016-2017</span></li>-->
+                <!-- <li data-target="#carousel-main-page" data-slide-to="1" ><span>День открытых дверей</span></li> -->
+{#                <li data-target="#carousel-main-page" data-slide-to="2"><span>Робототехника</span></li>#}
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+                <div class="item active" style="background-image: url({% static '/static/static/img/head_bg_new.jpg' %})">
+                    <div class="container main_container">
+										<div class="main_width50">
+											<h1 class="mainh1">Готовим школьников 8-11 классов <font class="orf">к ЕГЭ, ОГЭ и олимпиадам</font></h1>
+											<h2 class="mainh2">Увеличиваем результаты ЕГЭ <b>от 30 баллов</b> за 6 месяцев подготовки с преподавателями из лучших вузов Москвы!</h2>
+											<a href="#" class="cmp_link btn_or">Записаться на пробный урок</a>
+										</div>
+										<div class="main_width502"> 
+											<div class="main_picture victor"></div>
+											<div class="main_name">Виктор Рабин</div>
+											<div class="main_desc">Преподаватель математики</div>
+											<!--<a href="http://egechallenge.ru/config_kurs.html?startint" class="btn_white">Старт интенсивов!</a>-->
+										</div>
+                        <!-- <div class="cmp_bubble">Почему стоит записаться именно сейчас?<span class="cmp_bt">До 31 августа — <a href="#">договор по ценам прошлого года</a></span></div> -->
+                     <!--</div>
+                </div>
+                <div class="item" style="background-image: url({% static 'static/img/carousel_2.jpg' %})">
+                    <div class="container opendayslide">
+					<span class="ot1"> Дни открытых дверей закончились </span>
+					<span class="ot2">Приходите на </span><br>
+					<span class="ot2 yellowf">бесплатное тестирование</span>
+					<a href="#" class="slide_btn" id="slide2">Узнать больше</a>
+                    </div>-->
+                </div>
+{#                <div class="item" style="background-image: url({% static 'static/img/carousel_1.jpg' %})">#}
+{#                    <div class="container">#}
+{#                        <span class="cmp_txt1">Учебный Центр</span>#}
+{#                        <span class="cmp_txt2">CHALLENGE</span>#}
+{#                    <span class="cmp_txt3">Готовим школьников к ЕГЭ, ОГЭ, #}
+{#                    олимпиадам и поступлению#}
+{#                    в лучшие вузы страны</span>#}
+{#                        <span class="cmp_txt4">с преподавателями из МГУ <br />в центре Москвы </span>#}
+{##}
+{#                        <a href="#" class="cmp_link">Запись на 2016-2017 учебный год</a>#}
+{#                        <div class="cmp_bubble">Почему стоит записаться именно сейчас?<span class="cmp_bt">До 31 августа — <a href="#">договор по ценам прошлого года</a></span></div>#}
+{#                    </div>#}
+{#                </div>#}
+            </div>
+
+            <!-- Controls -->
+            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only"></span>
+            </a>
+            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only"></span>
+            </a>
+        </div>
+    </div>
+    <div id='b2'>
+        <div class="container">
+            <div class="b2_item">
+                <div class="b2_item_img"><img src="{% static 'static/img/b2_icon1.png' %}"></div>
+                <div class="b2_item_text">Занятия в группах <b><br />от 3 до 7 человек </b> <br />или индивидуально</div>
+            </div>
+            <div class="b2_item">
+                <div class="b2_item_img"><img src="{% static '/static/static/img/b2_prepod.png' %}"></div>
+                <div class="b2_item_text"><b>Преподаватели —</b><br>выпускники ТОП-5 вузов Москвы с опытом <br>работы от 5 лет</div>
+            </div>
+            <div class="b2_item">
+                <div class="b2_item_img"><img src="{% static '/static/static/img/b2_icon3.png' %}"></div>
+                <div class="b2_item_text">Программы курсов</b><br />составлены по стандартам<br /> <b>ФИПИ и МИОО </b></div>
+            </div>
+            <div class="b2_item">
+                <div class="b2_item_img"><img src="{% static '/static/static/img/b2_sale.png' %}"></div>
+                <div class="b2_item_text"><b>Акция!</b><br>При покупке курса<br><div class="bluelink">аттестация в подарок!<div class="saleinfo"> Пробный ЕГЭ/ОГЭ на официальных бланках <br /> по любому предмету. <br /> Бесплатно до 31 января!</div></div></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="b3">
+        <div class="container">
+            <span class="b3_head">Предметы подготовки</span>
+            <span class="b3_text">включают все основные школьные предметы, по которым сдаются ЕГЭ и ОГЭ</span>
+            <div class="b3_itemrow">
+                <a href="/subject/1/" class="b3_item_m">
+                    <div class="b3_item_img"><img src="{% static 'static/img/b3_icon1.png' %}"></div>
+                    <span class="b3_item_txt">Математика</span>
+                </a>
+                <a href="/subject/4/" class="b3_item_m">
+                    <div class="b3_item_img"><img src="{% static 'static/img/b3_icon6.png' %}"></div>
+                    <span class="b3_item_txt">Физика</span>
+                </a>
+                <a href="/subject/2/" class="b3_item_m b3_item_g">
+                    <div class="b3_item_img"><img src="{% static 'static/img/b3_icon2.png' %}"></div>
+                    <span class="b3_item_txt">Русский язык</span>
+                </a>
+                <a href="/subject/3/" class="b3_item_m b3_item_g">
+                    <div class="b3_item_img"><img src="{% static 'static/img/b3_icon7.png' %}"></div>
+                    <span class="b3_item_txt">Обществознание</span>
+                </a>
+                <a href="/subject/5/" class="b3_item_m">
+                    <div class="b3_item_img"><img src="{% static 'static/img/b3_icon5.png' %}"></div>
+                    <span class="b3_item_txt">Химия</span>
+                </a>
+                <a href="/subject/9/" class="b3_item_m">
+                    <div class="b3_item_img"><img src="{% static 'static/img/b3_icon9.png' %}"></div>
+                    <span class="b3_item_txt">Информатика</span>
+                </a>
+                <a href="/subject/10/" class="b3_item_m b3_item_g">
+                    <div class="b3_item_img"><img src="{% static 'static/img/b3_icon8.png' %}"></div>
+                    <span class="b3_item_txt">Английский язык</span>
+                </a>
+                <a href="/subject/8/" class="b3_item_m b3_item_g">
+                    <div class="b3_item_img"><img src="{% static 'static/img/b3_icon4.png' %}"></div>
+                    <span class="b3_item_txt">Литература</span>
+                </a>
+                <a href="/subject/7/" class="b3_item_m b3_item_g">
+                    <div class="b3_item_img"><img src="{% static 'static/img/b3_icon3.png' %}"></div>
+                    <span class="b3_item_txt">История</span>
+                </a>
+                <a href="/subject/6/" class="b3_item_m b3_item_g">
+                    <div class="b3_item_img"><img src="{% static 'static/img/b3_icon10.png' %}"></div>
+                    <span class="b3_item_txt">Биология</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div id="b4">
+        <div class="container">
+            <span class="b4_head">Форматы занятий</span>
+            <div class="b4_item b4_item1">
+                <span class="b4_item_head">Мини-группы</span>
+                <div class="b4_item_img"><img src="{% static 'static/img/b4_icon1.png' %}"></div>
+                <ul class="b4_react">
+                    <li><span>до 7 человек в группе</span></li>
+                    <li><span>соревновательные методики</span></li>
+                    <li><span>подбор группы по уровню ученика</span></li>
+                </ul>
+                <div class="b4_item_text">от <span>420<span class="rub">₽</span></span>за академ. час</div>
+                <a href="/courses/" class="b4_link btn_or">Посмотреть групповые курсы</a>
+            </div>
+            <div class="b4_item">
+                <span class="b4_item_head">Индивидуально</span>
+                <div class="b4_item_img"><img src="{% static 'static/img/b4_icon2.png' %}"></div>
+                <ul>
+                    <li><span>подбор преподавателя</span></li>
+                    <li><span>персональная программа</span></li>
+                    <li><span>выбор времени занятий</span></li>
+                </ul>
+                <div class="b4_item_text">от <span>1000<span class="rub">₽</span></span>за академ. час</div>
+                <a href="/tutors/" class="b4_link btn_or">Посмотреть преподавателей</a>
+            </div>
+        </div>
+    </div>
+    <div id="b5">
+        <div class="container">
+            <span class="b5_head">Наши преподаватели</span>
+            <span class="b5_text">Выпускники лучших вузов страны, участники конференций и олимпиад.<br />Научат самостоятельно мыслить и применять полученные знания на практике</span>
+            <div class="b5_carousel_container">
+                <div id="b5-carousel" class="owl-carousel">
+                    {% for tutor in tutors %}
+                    <div class="b5_owl_item">
+                        <div class="b5_owl_img"><img src="{{ tutor.photo.url }}"></div>
+                        <span class="b5_owl_name">{{ tutor.first_name }} <br />{{ tutor.last_name }}</span>
+                        <span class="predmet_prep_math">{{ tutor.subject.last }}</span>
+                        <span class="b5_owl_text">{{ tutor.education }}</span>
+                        <a class="b5_owl_link show_modal3 btn_blue" id="prep{{ tutor.id }}"  href="#!">Подробнее</a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <a href="/tutors/" class="b5_ling btn_or">Посмотреть преподавателей</a>
+        </div>
+    </div>
+    <div id="b6">
+        <div class="container">
+            <span class="b6_head">Система обучения</span>
+            <span class="b6_text"><b>Активность на занятиях и трудолюбие</b> — условия обучения в Учебном Центре CHALLENGE. <br />Мы контролируем прогресс ученика, следим за работой на занятиях, выполнением<br />домашних заданий, контрольных работ и промежуточных аттестаций</span>
+            <div class="b6_img"><img src="{% static 'static/img/b6_img.jpg' %}"></div>
+            <a href="/system/" class="b6_ling btn_or">Подробнее о системе обучения</a>
+        </div>
+    </div>
+
+    <div id="b7">
+        <div class="container">
+            <span class="b3_head">Как начать подготовку к экзаменам</span>
+						<div class="b7_line">
+							<a href="#" class="btn_or b7_ling">Заполните заявку</a>
+							<div class="textcall">или перезвоните нам по телефону: <b>+7 (499) 348-23-00 </b></div>
+						</div>
+						<div class="b7_carousel_container">
+						<div class="owl-carousel" id="b7-carousel">
+							<div class="b7_owl_item">
+								<div class="step_img">
+									<b>1</b>
+									<img src="/static/static/img/step1.png" alt="">
+								</div>
+								<div class="step_name">Запись по телефону</div>
+								<div class="step_minfo">
+									<span class="step_time">5-10 минут</span><br>
+									<span class="step_price">Бесплатно</span>
+								</div>
+								<div class="step_info">
+								Вы оставляете заявку на обучение, и наш менеджер перезвонит вам и поможет выбрать нужные курсы
+								</div>
+							</div>
+							<div class="b7_owl_item">
+								<div class="step_img">
+									<b>2</b>
+									<img src="/static/static/img/step2.png" alt="">
+								</div>
+								<div class="step_name">Консультация</div>
+								<div class="step_minfo">
+									<span class="step_time">5-10 минут</span><br>
+									<span class="step_price">Бесплатно</span>
+								</div>
+								<div class="step_info">
+								Ученик пишет вступительную работу, по результатам которой мы записываем его на пробное занятие в подходящую по уровню группу
+								</div>
+							</div>
+							<div class="b7_owl_item">
+								<div class="step_img">
+									<b>3</b>
+									<img src="/static/static/img/step3.png" alt="">
+								</div>
+								<div class="step_name">Пробное занятие</div>
+								<div class="step_minfo">
+									<span class="step_time">120 минут</span><br>
+									<span class="step_price">Оплата после пробного</span>
+								</div>
+								<div class="step_info">
+								Ученик приглашается на пробное занятие, в ходе которого он получит личную консультацию преподавателя
+								</div>
+							</div>
+							<div class="b7_owl_item">
+								<div class="step_img">
+									<b>4</b>
+									<img src="/static/static/img/step4.png" alt="">
+								</div>
+								<div class="step_name">Курс подготовки</div>
+								<div class="step_minfo">
+									<span class="step_time">от 1 до 8 месяцев</span><br>
+									<span class="step_price">Скидка до 20% на курс</span>
+								</div>
+								<div class="step_info">
+								Если группа вам подходит   — мы заключаем договор на обучение и вы вносите первую оплату за месяц либо полгода/год
+								</div>
+							</div>
+							<div class="b7_owl_item">
+								<div class="step_img">
+									<b>5</b>
+									<img src="/static/static/img/step5.png" alt="">
+								</div>
+								<div class="step_name">Аттестация</div>
+								<div class="step_minfo">
+									<span class="step_time">4 часа за один предмет</span><br>
+									<span class="step_price">Бесплатно для учащихся</span>
+								</div>
+								<div class="step_info">
+								Несколько раз в год мы проводим аттестацию учащихся. После нее преподаватели рассказывают родителям о текущих результатах занятий
+								</div>
+							</div>
+							<div class="b7_owl_item">
+								<div class="step_img">
+									<b>6</b>
+									<img src="/static/static/img/step6.png" alt="">
+								</div>
+								<div class="step_name">Поддержка на экзамене</div>
+								<div class="step_minfo">
+									<span class="step_time">20-30 минут</span><br>
+									<span class="step_price">Бесплатно</span>
+								</div>
+								<div class="step_info">
+								После получения результатов ЕГЭ/ОГЭ преподаватели помогают добрать баллы на апелляции, если это необходимо
+								</div>
+							</div>	
+						</div>
+						</div>
+        </div>
+    </div>
+    <div id="b8">
+        <div class="container">
+            <span class="b6_head">Результаты занятий</span>
+            <span class="b6_text">Ученики решают недоступные ранее задачи. Повышают успеваемость в школе. <br />Легко справляются с экзаменами. Поступают в лучшие вузы</span>
+            <div class="b8_carousel_container">
+                <div id="b8-carousel" class="owl-carousel">
+                    {% for comment in comments %}
+                    <div class="b8_owl_item">
+                        <div class="b8_owl_img"><img src={{ comment.photo.url }}></div>
+                        <div class="b8_owl_name">{{ comment.client_name }}</div>
+                        <div class="b8_owl_bal">
+                            {% for line in comment.client_achievement.splitlines %}
+                                {{ line }}<br/>
+                            {% endfor %}
+                        </div>
+                        <div class="b8_owl_postupil">
+                            <span>Поступил{% if comment.client_gender == '2' %}а{% endif %}:</span>{{ comment.client_was_enrolled_at }}
+                        </div>
+                        <span class="b8_owl_text"><strong style="font-size: 120%;">{{ comment.name }}</strong><br/>{{ comment.text }}</span>
+                        <span class="b8_owl_vk">{{ comment.client_link }}</span>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+{#            <div class="b8_owl_counter">#}
+{#                Отзыв <span class="b8_oc_cur">1</span> / <span class="b8_oc_last">2</span>#}
+{#            </div>#}
+        </div>
+    </div>
+    <div id="b9">
+        <div class="container">
+            <span class="b3_head">Советы выпускников CHALLENGE</span>
+            <div class="b9_youtube">
+                <iframe width="548" height="348" src="https://www.youtube.com/embed/y8kMiFrMwm4" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="b9_text">
+                <span class="b9_text_head">Что советуют абитуриентам 2017 года<br />наши выпускники, поступившие<br />в лучшие вузы?</span>
+                <span class="b9_text_mhead">Покорённые вузы: </span>
+                <ul>
+                    <li><span>ВГИК имени С.А. Герасимова</span></li>
+                    <li><span>ФинУниверситет при Правительстве РФ</span></li>
+                    <li><span>МИРЭА</span></li>
+                    <li><span>МГУ им. М.В. Ломоносова</span></li>
+										<li><span>МГТУ им. Н.Э. Баумана</span></li>
+										<li><span>НИУ ВШЭ</span></li>
+										<li><span>РГУ имени И.М. Губкина</span></li>
+										<li><span>ВГИК имени С.А. Герасимова</span></li>
+                </ul>
+                <a href="/students/" class="b9_link btn_or">Лучшие ученики 2016</a>
+            </div>
+        </div>
+    </div>
+    <div id="map">
+        <div class="mcont">
+            <div class="map_window">
+                <span class="mcont_head">Мы находимся<br />в центре Москвы</span>
+                <div class="mcont_text">м. Сухаревская<br />Большая Сухаревская площадь, 16/18 с.1.<br /><a href="/contacts/" class="map_link btn_or btn_small">Подробная схема прохода</a></div>
+            </div>
+        </div>
+    </div>
+   <!-- <div id="b10">
+        <div class="container">
+            <span class="b10_head">Готовы бросить вызов<br />вузу своей мечты?</span>
+            <span class="b10_text">Запишитесь на тестирование и узнайте свой уровень по 100-балльной шкале</span>
+            <div class="b10_btn"><div class="b10_link btn_or">Запись на тестирование</div></div>
+        </div>
+    </div>-->
+
+    <!-- Модальное окно для слайдов -->
+    <!-- Пример кнопки для вызова <a href="#" class="slide_btn" id="slide2">Название</a> -->
+    <!-- Id кнопки должно соответствовать суффиксу Id модального окна. В примере slide2 и slide-modal-slide2 -->
+    <div style="display: none;" id="lean_overlay">
+        <div class="box-modal slide-modal" id="slide-modal-slide2">
+            <div class="modal-close arcticmodal-close close1"><img src="{% static 'static/img/close_modal.png' %}"></div>
+            <div class="modal-content-box">
+                <div class="mf_capt">
+                    <span class="mf_capt_head">
+                       Записывайтесь и приходите к нам!<br/>
+                    </span>
+                    <span class="mf_capt_text">
+                       Вы сможете:<br/>
+ —  Узнать свой уровень подготовки, пройдя тестирование по ЕГЭ и ОГЭ;<br/>
+     —  Подробно разобрать свои ошибки с преподавателем;<br/>
+     —  Записаться на бесплатное пробное занятие.<br/><br/>
+     
+    Перед подготовкой к экзаменам важно знать свой начальный уровень.
+    Когда вы определите старт, то можно планировать результат на экзамене. 
+    Стоит уделять особое внимание темам, в которых есть недопонимание и вопросы. Наши преподаватели укажут ваши сильные и слабые стороны и подробно ответят на все вопросы. Тесты проходят по каждому предмету ЕГЭ/ОГЭ. 
+       <br/><br/>Записывайтесь по телефону: +7(499)348-23-00 
+    <br/>  Ждем вас каждый день: с 13:00 до 19:00.
+    
+                    </span>
+
+                </div>
+                <form class="mf_capt_rform" method="post" action="/thanks/">
+                    {% csrf_token %}
+                    <span class="mff_head">Оставьте контакты</span>
+                    <span class="mff_text">и мы перезвоним Вам<br/><span>в ближайшие 24 часа</span></span>
+                    <input type="text" class="mff_input mff_name" name="name"  placeholder="Ваши имя и фамилия" required/>
+                    <input type="text" class="mff_input mff_phone" name="tel" placeholder="+7 (XXX) XXX-XX-XX" required/>
+                    <input type="mail" class="mff_input mff_mail" name="email" placeholder="Ваш E-mail"/>
+                    <input type="submit" class="mff_submit btn_or" value="Записаться "/>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% include 'tutors_modal.html' %}
+{% endblock %}

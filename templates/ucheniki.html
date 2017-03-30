@@ -1,0 +1,35 @@
+{% extends 'tpl.html' %}
+{% block main %}
+    <div id="breadcrumbs">
+        <div class="container">
+            <a href="/">Главная </a>
+            <a href="#!">Лучшие ученики - 2016</a>
+        </div>
+    </div>
+    <div id="main_container">
+        <div class="container">
+            <div class="main_cont_head">Лучшие ученики-2016</div>
+            <div class="ucheniki_cont">
+                {% for comment in comments %}
+                <div class="ucheniki_item">
+                    <div class="b8_owl_img"><img src={{ comment.photo.url }}></div>
+                    <div class="ucheniki_item_num">{{ forloop.counter }}.</div>
+                    <div class="b8_owl_name">{{ comment.client_name }}</div>
+                    <span class="b8_owl_vk">{{ comment.client_link }}</span>
+                    <span class="b8_owl_text"><strong style="font-size: 120%;">{{ comment.name }}</strong><br/>{% if comment.full_text == "" %}{{ comment.text }}{% else %}{{ comment.full_text }}{% endif %}</span>
+                    <div class="ucheniki_item_right">
+                        <span class="ucheniki_item_right_head">Поступил{% if comment.client_gender == '2' %}а{% endif %}: </span>
+                        <span class="ucheniki_item_right_where">{{ comment.client_was_enrolled_at }}</span>
+                        <div class="ucheniki_item_right_pred">
+                        {% for line in comment.client_achievement.splitlines %}
+                            <strong>{{ line }}</strong><br/>
+                        {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

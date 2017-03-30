@@ -1,0 +1,208 @@
+{% extends 'tpl.html' %}
+{% load staticfiles %}
+{% load courses_extras %}
+{% block main %}
+    <div id="breadcrumbs">
+        <div class="container">
+            <a href="/">Главная </a>
+            <a href="#">Учебные курсы</a>
+        </div>
+    </div>
+    <div id="main_container" class="course_block">
+			<div class="container">
+			<div class="bh1">Библиотека учебных курсов</div>
+			<div class="controls" id="Filters">
+				<div class="filterblocks">
+					<div class="bh4">Предмет</div>
+					<div class="filt_line">
+						<div class="checkbox bluefilter">
+							<input type="checkbox" id="p_checkbox1" value=".mathematics"/>
+							<label for="p_checkbox1">Математика</label>
+						</div>
+						<div class="checkbox yellowfilter">
+							<input type="checkbox" id="p_checkbox2" value=".russian"/>
+							<label for="p_checkbox2">Русский язык</label>
+						</div>
+						<div class="checkbox yellowfilter">
+							<input type="checkbox" id="p_checkbox3" value=".history"/>
+							<label for="p_checkbox3">История</label>
+						</div>
+						<div class="checkbox yellowfilter">
+							<input type="checkbox" id="p_checkbox4" value=".literature"/>
+							<label for="p_checkbox4">Литература</label>
+						</div>
+						<div class="checkbox bluefilter">
+							<input type="checkbox" id="p_checkbox5" value=".chemistry"/>
+							<label for="p_checkbox5">Химия</label>
+						</div>
+						<div class="checkbox bluefilter">
+							<input type="checkbox" id="p_checkbox6" value=".physics"/>
+							<label for="p_checkbox6">Физика</label>
+						</div>
+						<div class="checkbox yellowfilter">
+							<input type="checkbox" id="p_checkbox7" value=".social"/>
+							<label for="p_checkbox7">Обществознание</label>
+						</div>
+						<div class="checkbox yellowfilter">
+							<input type="checkbox" id="p_checkbox8" value=".english"/>
+							<label for="p_checkbox8">Английский язык</label>
+						</div>
+						<div class="checkbox bluefilter">
+							<input type="checkbox" id="p_checkbox9" value=".informatics"/>
+							<label for="p_checkbox9">Информатика</label>
+						</div>
+						<div class="checkbox bluefilter">
+							<input type="checkbox" id="p_checkbox10" value=".biology"/>
+							<label for="p_checkbox10">Биология</label>
+						</div>
+					</div>
+				</div>
+				<div class="filterblocks">
+					<div class="bh4">Класс</div>
+					<div class="filt_line">
+						<div class="checkbox bluefilter">
+							<input type="checkbox"  id="c_check1" name="checks" value=".mix"/>
+							<label for="c_check1">Любой</label>
+						</div>
+						<div class="checkbox bluefilter">
+							<input type="checkbox" id="c_check2" name="checks" value=".class11"/>
+							<label for="c_check2">11 класс</label>
+						</div>
+						<div class="checkbox bluefilter">
+							<input type="checkbox" id="c_check3" name="checks" value=".class10"/>
+							<label for="c_check3">10 класс</label>
+						</div>
+						<div class="checkbox bluefilter">
+							<input type="checkbox" id="c_check4" name="checks" value=".class9"/>
+							<label for="c_check4">9 класс</label>
+						</div>
+						<div class="checkbox bluefilter">
+							<input type="checkbox" id="c_check5" name="checks" value=".class8"/>
+							<label for="c_check5">8 класс</label>
+						</div>
+					</div>
+				</div>
+
+				<div class="filterblocks">
+					<div class="bh4">Акции</div>
+					<div class="filt_line">
+						<div class="checkbox bluefilter">
+							<input type="checkbox" id="a_checkbox1" value=".startintensiv"/>
+							<label for="a_checkbox1">Старт интенсивов</label>
+						</div>
+						<div class="checkbox bluefilter">
+							<input type="checkbox" id="a_checkbox2" value=".dozapicgroup"/>
+							<label for="a_checkbox2">Набор в группы</label>
+						</div>
+					</div>
+				</div>
+			<div class="block_courses container" id="Container">
+                <div class="fail-message"><span>Нет подходящих результатов</span></div>
+				{% for course in courses %}
+                <div class="kurs_item mix {{ course.course_type.subject.name_eng }} {{ course.course_class }} {{ course.course_action.name_eng }}">
+					<a class="full_a" href="/course/{{ course.id }}/">
+					<span class="kurs_item_head">{{ course.course_type.subject.name }}</span>
+					<span class="kurs_item_desc">{{ course.course_type.name }}</span>
+					<div class="kurs_item_prepod">
+						<div class="kurs_item_prep_img">
+							<img src="{{ course.tutor.photo.url }}">
+						</div>
+						<div class="kurs_item_prep_name">
+							<b>{{ course.tutor.first_name }} {{ course.tutor.last_name }}</b>
+							<span>{{ course.tutor.educ }}</span>
+						</div>
+					</div>
+					<div class="kurs_item_small_info">
+						<div class="kurs_item_line">
+							<b class="wid50">Кол-во занятий:</b>
+							<span class="wid502 bluef">{{ course.duration }}</span>
+						</div>
+						<div class="kurs_item_line">
+							<b class="wid50">Старт:</b>
+							<span class="wid502 bluef">{% if course.date_start %}{{ course.date_start|date:"d.m.Y" }}{% else %}Идет набор{% endif %}</span>
+						</div>
+						<div class="kurs_item_line">
+							<b class="wid50">Стоимость:</b>
+							<div class="kurs_price">
+                                {% get_new_course_price course.id as new_price %}
+								{% if new_price %}
+                                    <span class="old_price">{{ course.course_price }}</span>
+                                    <span class="new_price">
+                                        <span>{{ new_price }}<span class="rub">₽</span>{% if course.course_discount.date_finish %}<div class="moreinfo"><div class="showinfo">* При оплате до {{ course.course_discount.date_finish|date:"d.m.Y" }}</div></div>{% endif %}</span>
+                                    </span>
+                                {% else %}
+                                    <span class="new_price">
+                                        <span>{{ course.course_price }}<span class="rub">₽</span></span>
+                                    </span>
+                                {% endif %}
+							</div>
+						</div>
+					</div>
+					<div class="kurs_item_more">
+						<div class="ppc_item_more_btn btn_blue btn_small">Подробнее</div>
+					</div>
+					</a>
+				</div>
+                {% endfor %}
+			</div>
+		</div>
+	</div>
+	</div>
+{#    <div id="main_container" class="kurskonf">#}
+{#        <div class="container">#}
+{#            <div class="kurskonf_left">#}
+{#                <form action="/courses/" method="post" onchange="this.submit();">#}
+{#                    {% csrf_token %}#}
+{#                    <div class="kkl_items">#}
+{#                        <div class="kkl_heads">Тип курса</div>#}
+{#                        <div class="kkl_cn">#}
+{#                            <input type="radio" value="2" name="d1" id="d2" {% if course_type_cat == '2' %}checked{% endif %}/>#}
+{#                            <label for="d2"><span></span>ЕГЭ (10-11 класс)</label>#}
+{#                        </div>#}
+{#                        <div class="kkl_cn">#}
+{#                            <input type="radio" value="1" name="d1" id="d1" {% if course_type_cat == '1' %}checked{% endif %}/>#}
+{#                            <label for="d1"><span></span>ОГЭ (8-9 класс)</label>#}
+{#                        </div>#}
+{#                        <div class="kkl_cn">#}
+{#                            <input type="radio" value="3" name="d1" id="d3" {% if course_type_cat == '3' %}checked{% endif %}/>#}
+{#                            <label for="d3"><span></span>Олимпиады (9-11 класс)</label>#}
+{#                        </div>#}
+{#                        <div class="kkl_cn">#}
+{#                            <input type="radio" value="4" name="d1" id="d4" {% if course_type_cat == '4' %}checked{% endif %}/>#}
+{#                            <label for="d4"><span></span>Спецкурсы</label>#}
+{#                        </div>#}
+{#                        <div class="kkl_heads">Предметы</div>#}
+{#                        {% for subj in subjects %}#}
+{#                            <div class="kkl_cn">#}
+{#                                <input type="checkbox" id="c{{ subj.id }}" name="c1" value="{{ subj.id }}" {% if subj.id in selected_subjects %}checked{% endif %}/>#}
+{#                                <label for="c{{ subj.id }}"><span></span>{{ subj.name }}</label>#}
+{#                            </div>#}
+{#                        {% endfor %}#}
+{#                    </div>#}
+{#                </form>#}
+{#                <div class="drop_filter_kurs"><span>Сбросить фильтры</span></div>#}
+{#            </div>#}
+{#            <div class="kk_right">#}
+{#                <div class="ocenter_head">Учебные курсы</div>#}
+{#                <div class="kk_right_container">#}
+{#                {% for course in courses %}#}
+{#                        <div class="pcc_item">#}
+{#                            <span class="pcc_item_head">{{ course.course_type.subject.name }}</span>#}
+{#                            <span class="ppc_item_txt">{{ course.course_type.name }}</span>#}
+{#                            <div class="ppc_item_prep">#}
+{#                                <div class="ppc_item_prep_img"><img src="{{ course.tutor.photo.url }}"></div>#}
+{#                                <div class="ppc_item_prep_name">{{ course.tutor.first_name }} {{ course.tutor.last_name }} <br/><span>{{ course.tutor.educ }}</span></div>#}
+{#                            </div>#}
+{#                            <div class="ppc_item_time">{{ course.class_qtty }}</div>#}
+{#                            <div class="ppc_item_time">{{ course.weekdays }} {{ course.time_start|time:'H:i' }} - {{ course.time_finish|time:'H:i' }}</div>#}
+{#                            <div class="ppc_item_date">{% if course.date_start %}Старт {{ course.date_start|date:"d.m.Y" }}{% else %}Идет дозапись!{% endif %}</div>#}
+{#                            <div class="ppc_item_more">#}
+{#                                <a class="ppc_item_more_btn" href="/course/{{ course.id }}/">Подробнее</a>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                {% endfor %}#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{% endblock %}

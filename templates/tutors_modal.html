@@ -1,0 +1,59 @@
+{% load staticfiles %}
+{% load courses_extras %}
+<div style="display: none;" id="lean_overlay1">
+{% for tutor in tutors %}
+        {% get_modal_height tutor.id as modal_height %}
+        <div class="box-modal modal3 modal2-prep{{ tutor.id }}" id="modal3-prep{{ tutor.id }}" style="height: {{ modal_height }}px !important;">
+            <div class="modal-close arcticmodal-close close1"><img src="{% static 'static/img/close_modal.png' %}"></div>
+            <div class="modal-content-box">
+                <div class="prep_modal_right">
+                    <div class="pmr_image b5_owl_img"><img src={{ tutor.photo.url }}></div>
+                    <a href="#!" class="pmr_choose">Выбрать</a>
+                    <div class="pmr_head">Форматы занятий:</div>
+                    <ul>
+                        {% for cat in tutor.course_format_category.all %}
+                            <li><span>{{ cat.name }}</span></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="pm_head">{{ tutor.first_name }} {{ tutor.last_name }}</div>
+                <div class="pm_pr">{{ tutor.subject.last }}</div>
+                <div class="pm_op">Образование и опыт</div>
+                <ul class="pm_ul">
+                    <li><span>{{ tutor.education }}</span></li>
+                    <li><span>{{ tutor.experience }}</span></li>
+                </ul>
+                <div class="pm_op">Увлечения</div>
+                <ul class="pm_ul">
+                    <li><span>{{ tutor.hobby }}</span></li>
+                </ul>
+                {% if tutor.video %}
+                <div class="pm_youtube">
+                    <iframe width="980" height="456" src="{{ tutor.video }}" frameborder="0" allowfullscreen></iframe>
+                </div>
+                {% endif %}
+                {% if tutor.comment_set.all %}
+                <div class="pm_op">Отзывы о преподавателе</div>
+                <div class="b8_carousel_container">
+                    <div id="b9-carousel" class="owl-carousel owl-theme">
+                        {% for comment in tutor.comment_set.all %}
+                        <div class="b8_owl_item">
+                            <div class="b8_owl_img"><img src="{{ comment.photo.url }}"></div>
+                            <div class="b8_owl_name">{{ comment.client_name }}</div>
+                            <div class="b8_owl_bal">
+                                {{ comment.client_achievement }}
+                            </div>
+                            <div class="b8_owl_postupil">
+                                <span>Поступил{% if comment.client_gender == '2' %}а{% endif %}:</span> {{ comment.client_was_enrolled_at }}
+                            </div>
+                            <span class="b8_owl_text"><strong style="font-size: 120%;">{{ comment.name }}</strong><br/>{{ comment.text }}</span>
+                            <span class="b8_owl_vk">{{ comment.client_link }}</span>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+</div>

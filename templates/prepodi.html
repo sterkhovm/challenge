@@ -1,0 +1,200 @@
+{% extends 'tpl.html' %}
+{% load staticfiles %}
+{% block main %}
+    <div id="breadcrumbs">
+        <div class="container">
+            <a href="#">Главная </a>
+            <a href="#">Наши преподаватели</a>
+        </div>
+    </div>
+    <div id="main_container" class="prepconf">
+        <div class="container">
+            <div class="kurskonf_left">
+                <div class="kkl_items">
+                    <div class="kkl_heads">Предметы</div>
+                    <form method="post" action="/tutors/" onchange="this.submit()">
+                        {% csrf_token %}
+                        {% for subj in subjects %}
+                            <div class="kkl_cn">
+                                <input type="radio" {% if selected_subj.id == subj.id %}checked{% endif %} id="c{{ subj.id }}" name="cc" value="{{ subj.id }}"/>
+                                <label for="c{{ subj.id }}"><span></span>{{ subj.name }}</label>
+                            </div>
+                        {% endfor %}
+                    </form>
+                </div>
+                <div class="drop_filter_kurs"><span>Сбросить фильтры</span></div>
+            </div>
+            <div class="kk_right">
+                <div class="ocenter_head">Наши преподаватели</div>
+                <div class="kk_right_container">
+                    {% for tutor in tutors %}
+                    <div class="b5_owl_item">
+                        <div class="b5_owl_img"><img src={{ tutor.photo.url }}></div>
+                        <span class="b5_owl_name">{{ tutor.first_name }} <br />{{ tutor.last_name }}</span>
+                        <span class="predmet_prep_math">{{ tutor.subject.last }}</span>
+                        <span class="b5_owl_text">{{ tutor.education }}</span>
+                        <a class="btn_blue btn_small b5_owl_link b5_sm show_modal3" id="prep{{ tutor.id }}" href="#!" >Подробнее</a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include 'tutors_modal.html' %}
+
+
+
+
+{#    <script type="text/javascript">#}
+{#        $(document).ready(function(){#}
+{#            $('.kk_right_container').isotope({#}
+{#                itemSelector: '.b5_owl_item',#}
+{#                columnWidth: 246,#}
+{#                masonry: {#}
+{#                    gutter: 21#}
+{#                }#}
+{#            });#}
+{#            $('.kkl_items input').on('change', function(){#}
+{#                var cc = 0;#}
+{#                var trimmed = "";#}
+{#                var dd = "";#}
+{#                if($('input[name=d1]:checked').val() == 1) {#}
+{#                    cc = ".eg";#}
+{#                    dd = ".eg";#}
+{#                } else if($('input[name=d1]:checked').val() == 2) {#}
+{#                    cc = ".og";#}
+{#                    dd = ".og";#}
+{#                } else if($('input[name=d1]:checked').val() == 3) {#}
+{#                    cc = ".ol";#}
+{#                    dd = ".ol";#}
+{#                } else if($('input[name=d1]:checked').val() == 4) {#}
+{#                    cc = ".sk";#}
+{#                    dd = ".sk";#}
+{#                } else {#}
+{#                    cc = " ";#}
+{#                    dd = "1";#}
+{#                }#}
+{##}
+{#                if(dd == 1){#}
+{#                    if($('#c1').is(':checked')){#}
+{#                        cc += ", .kk_math"#}
+{#                    }#}
+{##}
+{#                    if($('#c2').is(':checked')){#}
+{#                        cc += ", .kk_fiz"#}
+{#                    }#}
+{##}
+{#                    if($('#c3').is(':checked')){#}
+{#                        cc += ", .kk_rus"#}
+{#                    }#}
+{##}
+{#                    if($('#c4').is(':checked')){#}
+{#                        cc += ", .kk_obsh"#}
+{#                    }#}
+{##}
+{#                    if($('#c5').is(':checked')){#}
+{#                        cc += ", .kk_ist"#}
+{#                    }#}
+{##}
+{#                    if($('#c6').is(':checked')){#}
+{#                        cc += ", .kk_lit"#}
+{#                    }#}
+{##}
+{#                    if($('#c7').is(':checked')){#}
+{#                        cc += ", .kk_bio"#}
+{#                    }#}
+{##}
+{#                    if($('#c8').is(':checked')){#}
+{#                        cc += ", .kk_him"#}
+{#                    }#}
+{##}
+{#                    if($('#c9').is(':checked')){#}
+{#                        cc += ", .kk_inf"#}
+{#                    }#}
+{##}
+{#                    if($('#c10').is(':checked')){#}
+{#                        cc += ", .kk_ang"#}
+{#                    }#}
+{##}
+{#                    $('.kk_right_container').isotope({ filter: cc.substr(2) })#}
+{#                } else if($('#c1').is(':checked') || $('#c2').is(':checked') || $('#c3').is(':checked') || $('#c4').is(':checked') || $('#c5').is(':checked') || $('#c6').is(':checked') || $('#c7').is(':checked') || $('#c8').is(':checked') || $('#c9').is(':checked')){#}
+{#                    if($('#c1').is(':checked')){#}
+{#                        trimmed += ","+dd+".kk_math"#}
+{#                    }#}
+{##}
+{#                    if($('#c2').is(':checked')){#}
+{#                        trimmed += ","+dd+".kk_fiz"#}
+{#                    }#}
+{##}
+{#                    if($('#c3').is(':checked')){#}
+{#                        trimmed += ","+dd+".kk_rus"#}
+{#                    }#}
+{##}
+{#                    if($('#c4').is(':checked')){#}
+{#                        trimmed += ","+dd+".kk_obsh"#}
+{#                    }#}
+{##}
+{#                    if($('#c5').is(':checked')){#}
+{#                        trimmed += ","+dd+".kk_ist"#}
+{#                    }#}
+{##}
+{#                    if($('#c6').is(':checked')){#}
+{#                        trimmed += ","+dd+".kk_lit"#}
+{#                    }#}
+{##}
+{#                    if($('#c7').is(':checked')){#}
+{#                        trimmed += ","+dd+".kk_bio"#}
+{#                    }#}
+{##}
+{#                    if($('#c8').is(':checked')){#}
+{#                        trimmed += ","+dd+".kk_him"#}
+{#                    }#}
+{##}
+{#                    if($('#c9').is(':checked')){#}
+{#                        trimmed += ","+dd+".kk_inf"#}
+{#                    }#}
+{##}
+{#                    if($('#c10').is(':checked')){#}
+{#                        trimmed += ","+dd+".kk_ang"#}
+{#                    }#}
+{##}
+{##}
+{#                    $('.kk_right_container').isotope({ filter: trimmed.substr(1) })#}
+{##}
+{#                } else {#}
+{#                    $('.kk_right_container').isotope({ filter: cc })#}
+{##}
+{#                }#}
+{##}
+{##}
+{##}
+{#            });#}
+{##}
+{#            $('.drop_filter_kurs').on('click', function(){#}
+{#                $('.kk_right_container').isotope({ filter: '*' })#}
+{#                $('.kkl_items input').each(function(){#}
+{#                    $(this).removeAttr('checked');#}
+{#                })#}
+{##}
+{#            })#}
+{#        });#}
+{#    </script>#}
+    <script>
+        $(document).ready(function() {
+            $('.kk_right_container').isotope({
+                itemSelector: '.b5_owl_item',
+                columnWidth: 246,
+                masonry: {
+                    gutter: 21
+                }
+            });
+        });
+        $('.drop_filter_kurs').on('click', function(){
+            $('.kk_right_container').isotope({ filter: '*' });
+            $('.kkl_items input').each(function(){
+                $(this).removeAttr('checked');
+            });
+            window.location = window.location.href;
+        });
+    </script>
+{% endblock %}

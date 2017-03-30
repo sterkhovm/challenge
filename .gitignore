@@ -1,0 +1,5 @@
+/venv/
+/media/
+/courses/migrations/
+/challenge/settings.py
+*.pyc

@@ -1,0 +1,61 @@
+{% extends 'tpl.html' %}
+{% load staticfiles %}
+{% block main %}
+<div id="breadcrumbs">
+			<div class="container">
+				<a href="/">Главная </a>
+				<a href="/blog/">Блог</a>
+				<a href="#!">{{ article.name }}</a>
+			</div>
+</div>
+    <div id="main_container" class="blog">
+			<div class="container">
+			<div class="bh1_page">
+				<h1>{{ article.name }}</h1>
+				<a href="/blog/" class="back_blog">Назад в блог</a>
+			</div>
+			<div class="page_infos">
+				<div class="blog_page_author">Автор: {{ article.author }}</div>
+				<div class="blog_date_author">{{ article.publication_date }}</div>
+			</div>
+{#			<div class="blog_page_img">#}
+{#				<img src='{{ article.main_image.url }}'>#}
+{#			</div>#}
+			<div class="blog_page_text">
+			    {{ article.content|safe }}
+            </div>
+			<div class="blog_page_author2">
+				С вами ваш<br>
+				<b class="bluef">{{ article.author }}</b>
+			</div>
+			<div class="social soc_links">
+			<script src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js"></script>
+			<script src="//yastatic.net/share2/share.js"></script>
+			<div class="ya-share2" data-services="vkontakte,facebook,twitter"></div>
+			</div>
+			</div>
+		</div>
+	</div>
+	<div class="greybg blog_mini">
+		<div class="container">
+		<div class="bh1">Читайте также</div>
+			<div class="row">
+                {% for article in other_articles %}
+				<div class="blog_post">
+					<div class="blog_post_picblock">
+						<div class="blog_post_img">
+							<img src="{{ article.main_image.url }}">
+						</div>
+						<div class="blog_post_date">
+							<b class="d_day">{{ article.publication_date|date:'d' }}</b>
+							<span class="d_month">{{ article.publication_date|date:'M' }}</span>
+							<span class="d_year">{{ article.publication_date|date:'y' }}</span>
+						</div>
+					</div>
+					<a class="blog_post_head" href="/article/{{ article.id }}/">{{ article.name }}</a>
+				</div>
+                {% endfor %}
+			</div>
+		</div>
+	</div>
+{% endblock %}
