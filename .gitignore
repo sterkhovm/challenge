@@ -1,5 +1,8 @@
-/venv/
-/media/
-/courses/migrations/
-/challenge/settings.py
+venv
+media
+courses/migrations/
+challenge/settings.py
 *.pyc
+.idea
+manage.py
+challenge/config.py
