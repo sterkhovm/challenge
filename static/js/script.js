@@ -23,16 +23,6 @@ $( document ).ready(function() {
         navigationText : ["",""],
         afterAction : afterAction
     });
-		
-    $("#b7-carousel").owlCarousel({
-        navigation : true,
-        slideSpeed : 1000,
-        paginationSpeed : 400,
-				items:3,
-				margin:15,
-        navigationText : ["",""],
-        afterAction : afterAction
-    });
 
     $('.h_call, .cmp_link, .b7_ling, .b10_link, .b7_item, .pmr_choose, .kurs_btn, .predmet_head_btn').on('click', function(e){
         e.stopPropagation();

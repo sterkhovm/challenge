@@ -4,5 +4,7 @@
 /challenge/settings.py
 /challenge/config.py
 *.pyc
-.idea
+/.idea/
 manage.py
+/templates/bu/
+.DS_Store

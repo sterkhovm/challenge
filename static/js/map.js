@@ -4,7 +4,7 @@ var myMap; // заглобалим переменную карты чтобы м
 function init () { // функция - собиралка карты и фигни
    myMap = new ymaps.Map("map", { // создаем и присваиваем глобальной переменной карту и суем её в див с id="map"
 		// center: [55.755, 37.60], // ну тут центр
-		center: [55.770168, 37.623986], // ну тут центр
+		center: [55.771651, 37.637434], // ну тут центр
 		behaviors: ['default', 'scrollZoom'], // скроллинг колесом
 		zoom: 15 // тут масштаб
    });
@@ -12,7 +12,7 @@ function init () { // функция - собиралка карты и фигн
 myMap.behaviors.disable("scrollZoom");
 
 
-// myPlacemark3 = new ymaps.Placemark([55.7698,37.5962], {
+// myPlacemark3 = new ymaps.Placemark([0.0,0.0], {//
 // balloonContent: '<a href="#map1" class="underline">CHALLENGE на Маяковской</a>' }, {
 // iconLayout: 'default#image',
 //iconImageHref: '../img/icon2.png',
@@ -23,7 +23,7 @@ myMap.behaviors.disable("scrollZoom");
 // myMap.geoObjects.add(myPlacemark3);
 
 
-var myPlacemark5 = new ymaps.Placemark([55.770168, 37.623986], {
+var myPlacemark5 = new ymaps.Placemark([55.771651, 37.637434], {
 balloonContent: '' }, {
 iconLayout: 'default#image',
 iconImageHref: 'static/static/img/icon2.png',
