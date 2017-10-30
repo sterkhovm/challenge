@@ -6,3 +6,4 @@
 *.pyc
 .idea
 manage.py
+*.sqlite3
