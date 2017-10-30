@@ -4,6 +4,13 @@
 /challenge/settings.py
 /challenge/config.py
 *.pyc
+<<<<<<< HEAD
 .idea
 manage.py
 *.sqlite3
+=======
+/.idea/
+manage.py
+/templates/bu/
+.DS_Store
+>>>>>>> 302d2b1e7e5de634f8f33d47c7ef27c38b01cd0f
