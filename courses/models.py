@@ -86,6 +86,9 @@ class Tutor(models.Model):
     hobby = models.TextField(verbose_name='Увлечения')
     photo = models.ImageField(verbose_name='Фото')
     video = models.URLField(verbose_name='Ссылка на видео', null=True, blank=True)
+    avg_score = models.IntegerField(verbose_name='Средний балл ЕГЭ', null=True, blank=True)
+    max_score = models.IntegerField(verbose_name='Максимальный балл ЕГЭ', null=True, blank=True)
+    interesting_facts = models.TextField(verbose_name='Интересные факты', null=True, blank=True)
     actual = models.BooleanField(default=True, verbose_name='Показывать на сайте')
 
     def __unicode__(self):
