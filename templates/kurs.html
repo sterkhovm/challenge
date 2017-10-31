@@ -85,7 +85,7 @@
 			</ul>
             {% if course.tutor.avg_score %}<div class="prep_know">Средний балл ЕГЭ: {{ course.tutor.avg_score }}</div>{% endif %}
             {% if course.tutor.max_score %}<div class="prep_know">Максимальный балл ЕГЭ: {{ course.tutor.max_score }}</div>{% endif %}
-			<div class="prep_know">Опыт подготовки к ЕГЭ: {{ course.tutor.experience }}</div>
+			<div class="prep_know">Опыт подготовки к ЕГЭ: {{ course.tutor.experience_years }}</div>
             <div class="prep_know">Интересные факты:</div>
             <ul class="prep_bulitlines">
                 {% for fact_line in course.tutor.facts_lines %}
