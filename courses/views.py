@@ -10,7 +10,8 @@ from django.core.mail import EmailMessage
 def p_index(request):
     args = {}
     args.update(csrf(request))
-    args['tutors'] = Tutor.objects.filter(actual=True).order_by('?')
+    tutors = Tutor.objects.filter(actual=True).order_by('?')
+    args['tutors'] = tutors
     args['comments'] = Comment.objects.filter(actual=True).order_by('?')
     return render_to_response('index.html', args)
 

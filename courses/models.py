@@ -88,7 +88,6 @@ class Tutor(models.Model):
     video = models.URLField(verbose_name='Ссылка на видео', null=True, blank=True)
     avg_score = models.IntegerField(verbose_name='Средний балл ЕГЭ', null=True, blank=True)
     max_score = models.IntegerField(verbose_name='Максимальный балл ЕГЭ', null=True, blank=True)
-    interesting_facts = models.TextField(verbose_name='Интересные факты', null=True, blank=True)
     actual = models.BooleanField(default=True, verbose_name='Показывать на сайте')
 
     def __unicode__(self):
@@ -96,6 +95,13 @@ class Tutor(models.Model):
 
     def unicode_sort(self):
         return self.__unicode__()
+
+    def education_lines(self):
+        return self.education.split('\n')
+
+
+    def facts_lines(self):
+        return self.hobby.split('\n')
 
     unicode_sort.admin_order_field = 'last_name'
     unicode_sort.short_description = 'Преподаватель'

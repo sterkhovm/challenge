@@ -169,7 +169,7 @@
                         <div class="b5_owl_img"><img src="{{ tutor.photo.url }}"></div>
                         <span class="b5_owl_name">{{ tutor.first_name }} <br />{{ tutor.last_name }}</span>
                         <span class="predmet_prep_math">{{ tutor.subject.last }}</span>
-                        <span class="b5_owl_text">{{ tutor.education }}</span>
+                        <span class="b5_owl_text">{{ tutor.education_lines.0 }}</span>
                         <a class="b5_owl_link show_modal3 btn_blue" id="prep{{ tutor.id }}"  href="#!">Подробнее</a>
                     </div>
                     {% endfor %}

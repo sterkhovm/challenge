@@ -77,11 +77,20 @@
 		<div class="prepod_info">
 			<div class="prep_name">{{ course.tutor.first_name }} {{ course.tutor.last_name }}</div>
 			<div class="prep_who">Преподаватель курса</div>
-			<div class="prep_know">Образование и опыт</div>
+			<div class="prep_know">Образование</div>
 			<ul class="prep_bulitlines">
-				<li><span>{{ course.tutor.education }}</span></li>
-                <li><span>{{ course.tutor.experience }}</span></li>
-				<li><b class="bluef">{{ course.tutor.hobby }}</b>
+                {% for education_line in course.tutor.education_lines %}
+				    <li><span>{{ education_line }}</span></li>
+                {% endfor %}
+			</ul>
+            {% if course.tutor.avg_score %}<div class="prep_know">Средний балл ЕГЭ: {{ course.tutor.avg_score }}</div>{% endif %}
+            {% if course.tutor.max_score %}<div class="prep_know">Максимальный балл ЕГЭ: {{ course.tutor.max_score }}</div>{% endif %}
+			<div class="prep_know">Опыт подготовки к ЕГЭ: {{ course.tutor.experience }}</div>
+            <div class="prep_know">Интересные факты:</div>
+            <ul class="prep_bulitlines">
+                {% for fact_line in course.tutor.facts_lines %}
+                    <li>{{ fact_line }}</li>
+                {% endfor %}
 			</ul>
 		</div>
 	</div>

@@ -18,14 +18,21 @@
                 </div>
                 <div class="pm_head">{{ tutor.first_name }} {{ tutor.last_name }}</div>
                 <div class="pm_pr">{{ tutor.subject.last }}</div>
-                <div class="pm_op">Образование и опыт</div>
+                <div class="pm_op">Образование</div>
                 <ul class="pm_ul">
-                    <li><span>{{ tutor.education }}</span></li>
-                    <li><span>{{ tutor.experience }}</span></li>
+                    {% for education_line in tutor.education_lines %}
+                        <li><span>{{ education_line }}</span></li>
+                    {% endfor %}
                 </ul>
-                <div class="pm_op">Увлечения</div>
+
+                {% if tutor.avg_score %}<div class="pm_op">Средний балл ЕГЭ: {{ tutor.avg_score }}</div>{% endif %}
+                {% if tutor.max_score %}<div class="pm_op">Максимальный балл ЕГЭ: {{ tutor.max_score }}</div>{% endif %}
+                <div class="pm_op">Опыт подготовки к ЕГЭ: {{ tutor.experience }}</div>
+                <div class="pm_op">Интересные факты</div>
                 <ul class="pm_ul">
-                    <li><span>{{ tutor.hobby }}</span></li>
+                    {% for fact_line in tutor.facts_lines %}
+                        <li><span>{{ fact_line}}</span></li>
+                    {% endfor %}
                 </ul>
                 {% if tutor.video %}
                 <div class="pm_youtube">
