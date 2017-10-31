@@ -27,11 +27,11 @@
 
                 {% if tutor.avg_score %}<div class="pm_op">Средний балл ЕГЭ: {{ tutor.avg_score }}</div>{% endif %}
                 {% if tutor.max_score %}<div class="pm_op">Максимальный балл ЕГЭ: {{ tutor.max_score }}</div>{% endif %}
-                <div class="pm_op">Опыт подготовки к ЕГЭ: {{ tutor.experience }}</div>
+                <div class="pm_op">Опыт подготовки к ЕГЭ: {{ tutor.experience_years }}</div>
                 <div class="pm_op">Интересные факты</div>
                 <ul class="pm_ul">
                     {% for fact_line in tutor.facts_lines %}
-                        <li><span>{{ fact_line}}</span></li>
+                        <li><span>{{ fact_line }}</span></li>
                     {% endfor %}
                 </ul>
                 {% if tutor.video %}
