@@ -79,7 +79,7 @@ class Tutor(models.Model):
     middle_name = models.CharField(max_length=200, verbose_name='Отчество')
     subject = models.ManyToManyField(Subject, verbose_name='Преподаваемые дисциплины')
     course_format_category = models.ManyToManyField(CourseFormatCategory, verbose_name='Форматы занятий')
-    education = models.CharField(max_length=400, verbose_name='Образование')
+    education = models.TextField(verbose_name='Образование')
     educ = models.CharField(max_length=20, verbose_name='Короткое название ВУЗа')
     experience_years = models.CharField(max_length=100, verbose_name='Опыт работы (лет)')
     experience = models.TextField(verbose_name='Опыт')
