@@ -83,7 +83,7 @@ class Tutor(models.Model):
     educ = models.CharField(max_length=20, verbose_name='Короткое название ВУЗа')
     experience_years = models.CharField(max_length=100, verbose_name='Опыт работы (лет)')
     experience = models.TextField(verbose_name='Опыт')
-    hobby = models.TextField(verbose_name='Увлечения')
+    hobby = models.TextField(verbose_name='Интересные факты')
     photo = models.ImageField(verbose_name='Фото')
     video = models.URLField(verbose_name='Ссылка на видео', null=True, blank=True)
     avg_score = models.IntegerField(verbose_name='Средний балл ЕГЭ', null=True, blank=True)
