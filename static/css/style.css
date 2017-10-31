@@ -4414,7 +4414,7 @@ h1.kursh1 {
     margin: 25px 0 35px;
 }
 .bens {
-    max-width: 700px;
+    max-width: 1000px;
     margin: 0 0 50px;
 }
 .benblock b {
@@ -4434,6 +4434,9 @@ h1.kursh1 {
 }
 .kurs_people {
     background: url(../img/kurs_head_icon2.png) no-repeat left center;
+}
+.kurs_schedule {
+    background: url(../img/kurs_head_icon3.png) no-repeat left center;
 }
 .kurs_page_info {
     text-align: center;

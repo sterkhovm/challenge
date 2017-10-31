@@ -18,6 +18,9 @@
 				<div class="benblock kurs_start">
 				    <b>Старт:</b><span>{{ course.date_start|default_if_none:"Идет набор" }}</span>
 				</div>
+                <div class="benblock kurs_schedule">
+				    <b>Расписание:</b><span>{{ course.weekdays }} {{ course.time_start }}-{{ course.time_finish }}</span>
+				</div>
 				<div class="benblock kurs_people">
 				    <b>Осталось в группе:</b><span>{{ course.place_left }} {% if course.place_left == 1 %}место{% elif course.place_left < 5 and course.place_left > 1 %}места{% else %}мест{% endif %}</span>
 				</div>
